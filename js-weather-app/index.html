@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dist/output.css">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="flex flex-col justify-center items-center h-screen">
+        <div id="main-div"
+            class=" max-w-screen-lg  py-5 px-32 bg-gradient-to-br h-fit shadow-xl shadow-gray-400 from-blue-700 to-cyan-700">
+            <div id="city-buttons" class='flex flex-row items-center justify-between my-6   '>
+            </div>
+
+            <div id="inputs" class='flex flex-row  justify-center mx-6'>
+                <div class='flex flex-row w-3/4 items-center justify-center   space-x-4'>
+                    <input id="input-search" type='text' placeholder='Seacrh for city...'
+                        class='text-xl font-light p-2 w-full capitalize shadow-xl placeholder:lowercase focus:outline-none'
+                        >
+                    </input>
+                    <i class="uil uil-search text-white cursor-pointer transition ease-out hover:scale-125 " onclick="filter.actions.handleInput()"></i>
+                    <i class="uil uil-map-marker  text-white cursor-pointer transition ease-out hover:scale-125" onclick="filter.actions.handleLocationClick()"></i>
+                </div>
+                <div class='flex flex-row w-1/4 justify-center items-center space-x-1 text-xl text-white'>
+                    <button class=" cursor-pointer transition ease-out hover:scale-125" 
+                        name='metric'
+                        onclick="filter.actions.handleUnit(name)">
+                        °C
+                    </button>
+                    <p>|</p>
+                    <button  name='imperial'
+                        class="cursor-pointer transition ease-out hover:scale-125"
+                        onclick="filter.actions.handleUnit(name)">
+                         °F
+                    </button>
+                </div>
+            </div>
+
+            <div>
+                <div id="localtime" class='flex items-center justify-center my-6'>
+                    <p id="date-time" class='text-white text-xl font-extralight'>
+                        
+                    </p>
+                </div>
+                <div class='flex items-center justify-center my-3'>
+                    <p id="location" class='text-white text-3xl font-medium'></p>
+                </div>
+            </div>
+
+            <div>
+                <div class='flex items-center justify-center py-6 text-xl text-cyan-300'>
+                    <p id="detail"></p>
+                </div>
+
+                <div class='flex flex-row items-center justify-between text-white py-3'>
+
+                    <img id="weather-img" src={iconUrlFromCode(icon)} class='w-20' alt="" />
+                    <p id="temp" class='text-5xl'></p>
+
+
+                    <div class='flex flex-col space-y-2 justify-start'>
+                        <div class='flex font-light text-sm items-center '>
+                            <i class="uil uil-temperature-half mr-1"></i>
+                            Real fell:
+                            <span id="real-feel" class='font-medium ml-1'></span>
+                        </div>
+                        <div class='flex font-light text-sm items-center '>
+                            <i size="18" class="uil uil-tear mr-1"></i>
+                            Humidity:
+                            <span id="humidity" class='font-medium ml-1'></span>
+                        </div>
+                        <div class='flex font-light text-sm items-center '>
+                            <i size="25" class="uil uil-wind mr-1 "></i>
+                            Wind:
+                            <span id="wind" class='font-medium ml-1'></span>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class='flex flex-row items-center justify-center space-x-2 text-white text-sm py-3'>
+                    <i class="uil uil-sun"></i>
+                    <p class='font-light'>
+                        Rise: <span id="rise" class='font-medium ml-1'></span>
+                    </p>
+                    <p class='font-light'>|</p>
+
+                    <i class="uil uil-sunset"></i>
+                    <p class='font-light'>
+                        Set: <span id="set" class='font-medium ml-1'></span>
+                    </p>
+                    <p class='font-light'>|</p>
+
+                    <i class="uil uil-sun"></i>
+                    <p class='font-light'>
+                        High: <span id="high" class='font-medium ml-1'></span>
+                    </p>
+                    <p class='font-light'>|</p>
+                    <i class="uil uil-sun"></i>
+                    <p class='font-light'>
+                        Low: <span id="low" class='font-medium ml-1'></span>
+                    </p>
+
+
+                </div>
+            </div>
+
+
+        </div>
+        
+    </div>
+
+   
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/luxon@3.1.1/build/global/luxon.min.js"></script>
+<script src="app.js"></script>
+
+</html>
